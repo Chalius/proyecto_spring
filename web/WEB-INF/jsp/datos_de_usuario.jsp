@@ -12,8 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div style="text-align: center;">
+            <h1>Datos de usuario</h1>
+            <h3>Aquí podrás ver tus datos.</h3>
+            <a href="index.htm">Ir a página principal</a>
+            
+        </div>
         
-        <h1>Datos de usuario</h1>
         
         
         

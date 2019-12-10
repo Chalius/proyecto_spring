@@ -13,8 +13,25 @@
     <security:http auto-config="true">
         <security:intercept-url pattern="/" access="permitAll()" />
         <!--security:intercept-url pattern="/listado.htm" access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')" /-->
-        <!--security:intercept-url pattern="/datos_de_usuario.htm" access="!hasAuthority('ROLE_Usuario')" /-->
+        <security:intercept-url pattern="/datos_de_usuario.htm" access="hasAuthority('ROLE_Usuario')" />
         <!--security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')" /-->    
+    
+    
+        <!-- punto 5.6 lab15 daw, modificando la página access denied -->
+        <security:access-denied-handler error-page="/acceso-denegado.htm" />
+    
+        <!-- punto 6.1 daw -->
+        <security:form-login 
+            login-page="/login.htm" 
+            default-target-url="/index.htm"
+            login-processing-url="/j_spring_security_check"
+            authentication-failure-url="/error-login.htm"
+            username-parameter="usuario"
+            password-parameter="clave" />
+    
+    
+    
+    
     </security:http>
     
     
