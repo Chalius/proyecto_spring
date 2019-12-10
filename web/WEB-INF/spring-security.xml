@@ -12,13 +12,28 @@
         ">
     <security:http auto-config="true">
         <security:intercept-url pattern="/" access="permitAll()" />
-        <security:intercept-url pattern="/listado.htm"
-                                access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')" />
-        <security:intercept-url pattern="/datos_de_usuario.htm" access="!hasAuthority('ROLE_Usuario')" />
-        <!--security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')" /-->
-    
-        
+        <!--security:intercept-url pattern="/listado.htm" access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')" /-->
+        <!--security:intercept-url pattern="/datos_de_usuario.htm" access="!hasAuthority('ROLE_Usuario')" /-->
+        <!--security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')" /-->    
     </security:http>
+    
+    
+    
+    
+    
+    <!-- PUNTO 4.2 LAB15 DAW -->
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="invitado" password="123456" authorities="ROLE_Usuario" />
+                <security:user name="admin" password="123456" authorities="ROLE_Administrador" />
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+    
+    
+    
+    
         
         
 </beans>
