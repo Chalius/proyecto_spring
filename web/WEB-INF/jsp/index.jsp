@@ -26,8 +26,10 @@
             </sec:authorize>
 
             <sec:authorize access="!hasRole('ROLE_ANONYMOUS')">     
+
                 <a href="datos_de_usuario.htm" class="card-body px-lg-5 pt-0">Datos de usuario</a>
                 <a href="<c:url value="salir.htm" />" class="btn btn-danger">Cerrar Sesion</a> 
+
             </sec:authorize>
 
             <p>En esta página podrás comprar tus peliculas</p>

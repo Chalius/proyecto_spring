@@ -21,6 +21,7 @@
                 <a href="<c:url value="salir.htm" />" class="btn btn-danger">Cerrar Sesion</a>       
             </sec:authorize>
 
+
             <br>
 
 
@@ -32,5 +33,8 @@
 
 
 
+
+
     </body>
+
 </html>
