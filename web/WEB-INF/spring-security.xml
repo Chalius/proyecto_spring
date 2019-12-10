@@ -21,7 +21,8 @@
         <!-- punto 5.1 lab15 daw -->
         <security:logout logout-url="/salir.htm" logout-success-url="/index.jsp" />
     
-    
+
+          
         <!-- punto 5.6 lab15 daw, modificando la página access denied -->
         <security:access-denied-handler error-page="/acceso-denegado.htm" />
     
@@ -33,15 +34,15 @@
         <!-- punto 6.1 daw -->
         <security:form-login 
             login-page="/login.htm" 
-            default-target-url="/index.htm"
+            default-target-url="/listado.htm"
             login-processing-url="/j_spring_security_check"
             authentication-failure-url="/error-login.htm"
             username-parameter="usuario"
             password-parameter="clave" />
+        
+
     
-    
-    
-    
+  
     </security:http>
     
     
@@ -49,17 +50,32 @@
     
     
     <!-- PUNTO 4.2 LAB15 DAW -->
-    <security:authentication-manager>
+    <!--security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
                 <security:user name="invitado" password="123456" authorities="ROLE_Usuario" />
                 <security:user name="admin" password="123456" authorities="ROLE_Administrador" />
             </security:user-service>
         </security:authentication-provider>
+    </security:authentication-manager-->
+    
+    
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource"
+                                        users-by-username-query="
+                SELECT USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'ENABLED'
+                FROM usuarios WHERE USERNAME=?;"
+                
+                                        authorities-by-username-query="
+                SELECT u.USERNAME, r.ROLENAME
+                    FROM usuarios u, roles r
+                    WHERE u.codigo = r.codigo_usuario
+                    AND u.USERNAME=?;"
+            />
+        </security:authentication-provider>
     </security:authentication-manager>
-    
-    
-    
+
     
         
         

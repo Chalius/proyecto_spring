@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +58,23 @@ public class controladorPrincipal {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
         return "redirect:/index.htm";
+    }
+    
+    
+        
+    // PUNTO 5.7 LAB15 DAW, añadiendo página personalizada de access-denied
+    @RequestMapping(value="acceso-denegado", method=RequestMethod.GET)
+    public ModelAndView accessDenied(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = null;
+        if(principal instanceof UserDetails){
+            userDetails = (UserDetails) principal;
+        }
+        String usuarioLogin = userDetails.getUsername();
+        ModelAndView model = new ModelAndView();
+        model.addObject("usuario",usuarioLogin);
+        model.setViewName("acceso-denegado");
+        return model;
     }
 
 }

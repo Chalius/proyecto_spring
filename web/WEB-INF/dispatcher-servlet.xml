@@ -26,6 +26,9 @@
                 <prop key="datos_de_usuario.htm">controladorPrincipal</prop>
                 
                 <prop key="salir.htm">controladorPrincipal</prop>
+                
+                <prop key="error-login.htm">controladorPrincipal</prop>
+                
             </props>
         </property>
     </bean>
