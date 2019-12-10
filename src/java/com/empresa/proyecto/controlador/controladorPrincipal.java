@@ -12,5 +12,12 @@ public class controladorPrincipal {
         mvc.setViewName("index");
         return mvc;
     }
+    
+   @RequestMapping(value = "login")
+    public ModelAndView login() {
+        ModelAndView mvc = new ModelAndView();
+        mvc.setViewName("login");
+        return mvc;
+    }
 
 }
