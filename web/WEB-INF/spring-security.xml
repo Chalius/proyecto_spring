@@ -17,9 +17,19 @@
         <!--security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')" /-->    
     
     
+    
+        <!-- punto 5.1 lab15 daw -->
+        <security:logout logout-url="/salir.htm" logout-success-url="/index.jsp" />
+    
+    
         <!-- punto 5.6 lab15 daw, modificando la página access denied -->
         <security:access-denied-handler error-page="/acceso-denegado.htm" />
     
+        
+        
+        
+        
+        
         <!-- punto 6.1 daw -->
         <security:form-login 
             login-page="/login.htm" 
