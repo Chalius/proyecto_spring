@@ -19,6 +19,7 @@ public class controladorPrincipal {
         mvc.setViewName("login");
         return mvc;
     }
+
     
     @RequestMapping(value = "datos_de_usuario")
     public ModelAndView datos_de_usuario() {
@@ -26,5 +27,6 @@ public class controladorPrincipal {
         mvc.setViewName("datos_de_usuario");
         return mvc;
     }
+
 
 }

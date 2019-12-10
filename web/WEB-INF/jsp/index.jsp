@@ -19,9 +19,11 @@
 
             <h1>Movie Store</h1>
 
+
             <a href="login.htm" class="card-body px-lg-5 pt-0">
                 Iniciar sesión 
             </a>
+
 
             <p>En esta página podrás comprar tus peliculas</p>
 

@@ -22,7 +22,9 @@
                 <!-- <prop key="index.htm">indexController</prop> -->
                 <prop key="index.htm">controladorPrincipal</prop>
                 <prop key="login.htm">controladorPrincipal</prop>
+
                 <prop key="datos_de_usuario.htm">controladorPrincipal</prop>
+
             </props>
         </property>
     </bean>
