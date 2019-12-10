@@ -13,7 +13,7 @@
     <security:http auto-config="true">
         <security:intercept-url pattern="/" access="permitAll()" />
         <!--security:intercept-url pattern="/listado.htm" access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')" /-->
-        <security:intercept-url pattern="/datos_de_usuario.htm" access="hasAuthority('ROLE_Usuario')" />
+        <security:intercept-url pattern="/datos_de_usuario.htm" access="hasRole('ROLE_Usuario') or hasRole('ROLE_Administrador')" />
         <!--security:intercept-url pattern="/agregar.htm" access="!hasAuthority('ROLE_Usuario')" /-->    
     
     
